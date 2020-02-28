@@ -1,4 +1,7 @@
 # HaloGE2Assignment
+
+![Image description](https://gamingbolt.com/wp-content/uploads/2019/06/halo-infinite-1.jpg)
+
 A Halo style space battle simulation
 For this assignment I will be using the godot game engine as its one Ive grown to like
 The assets and models I will be using are mostly directly rigged from the first halo game, if I can find better or newer models I will be swapping them.
