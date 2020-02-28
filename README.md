@@ -2,7 +2,7 @@
 A Halo style space battle simulation
 For this assignment I will be using the godot game engine as its one Ive grown to like
 The assets and models I will be using are mostly directly rigged from the first halo game, if I can find better or newer models I will be swapping them.
-In the final scene I hope to use an entire map file to show the pelican crashing but so far I havent been able to get one working properly with textures
+In the final scene I hope to use an entire map file to show the pelican crashing along with a spartan walking out from it but so far I havent been able to get one working properly with textures
 
 # Storyboard
  - The initial scene starts off with a pelican flying towards a new unkown halo ring
