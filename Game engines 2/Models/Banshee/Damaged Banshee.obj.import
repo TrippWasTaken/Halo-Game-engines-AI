@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Damaged Banshee.obj-3f608ed277562c65ee1173bbcbb384cd.mesh"
+
+[deps]
+
+files=[ "res://.import/Damaged Banshee.obj-3f608ed277562c65ee1173bbcbb384cd.mesh" ]
+
+source_file="res://Models/Banshee/Damaged Banshee.obj"
+dest_files=[ "res://.import/Damaged Banshee.obj-3f608ed277562c65ee1173bbcbb384cd.mesh", "res://.import/Damaged Banshee.obj-3f608ed277562c65ee1173bbcbb384cd.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

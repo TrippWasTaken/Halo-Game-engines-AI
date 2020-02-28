@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/pelican.obj-225dd6aed5688f4e8e53f8284e7fb4d8.mesh"
+
+[deps]
+
+files=[ "res://.import/pelican.obj-225dd6aed5688f4e8e53f8284e7fb4d8.mesh" ]
+
+source_file="res://Models/Pelican/pelican.obj"
+dest_files=[ "res://.import/pelican.obj-225dd6aed5688f4e8e53f8284e7fb4d8.mesh", "res://.import/pelican.obj-225dd6aed5688f4e8e53f8284e7fb4d8.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

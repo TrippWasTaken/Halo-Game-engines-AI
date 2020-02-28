@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Halo.obj-8d6e6b26be101ef18b437a7e9fa62a9a.mesh"
+
+[deps]
+
+files=[ "res://.import/Halo.obj-8d6e6b26be101ef18b437a7e9fa62a9a.mesh" ]
+
+source_file="res://Models/Halo/Halo.obj"
+dest_files=[ "res://.import/Halo.obj-8d6e6b26be101ef18b437a7e9fa62a9a.mesh", "res://.import/Halo.obj-8d6e6b26be101ef18b437a7e9fa62a9a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

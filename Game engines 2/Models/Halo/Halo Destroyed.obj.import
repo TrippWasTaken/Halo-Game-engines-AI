@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Halo Destroyed.obj-f7756627fd6ed73c581ca81f8605564e.mesh"
+
+[deps]
+
+files=[ "res://.import/Halo Destroyed.obj-f7756627fd6ed73c581ca81f8605564e.mesh" ]
+
+source_file="res://Models/Halo/Halo Destroyed.obj"
+dest_files=[ "res://.import/Halo Destroyed.obj-f7756627fd6ed73c581ca81f8605564e.mesh", "res://.import/Halo Destroyed.obj-f7756627fd6ed73c581ca81f8605564e.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

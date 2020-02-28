@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Covenant Assault Carrier.obj-241dfd88a6a1a186be408623f09963cf.mesh"
+
+[deps]
+
+files=[ "res://.import/Covenant Assault Carrier.obj-241dfd88a6a1a186be408623f09963cf.mesh" ]
+
+source_file="res://Models/Covenant Assault Carrier/Covenant Assault Carrier.obj"
+dest_files=[ "res://.import/Covenant Assault Carrier.obj-241dfd88a6a1a186be408623f09963cf.mesh", "res://.import/Covenant Assault Carrier.obj-241dfd88a6a1a186be408623f09963cf.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

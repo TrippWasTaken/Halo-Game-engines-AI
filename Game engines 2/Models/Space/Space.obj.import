@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Space.obj-6ac544ee7742d4210679b678081ec1a5.mesh"
+
+[deps]
+
+files=[ "res://.import/Space.obj-6ac544ee7742d4210679b678081ec1a5.mesh" ]
+
+source_file="res://Models/Space/Space.obj"
+dest_files=[ "res://.import/Space.obj-6ac544ee7742d4210679b678081ec1a5.mesh", "res://.import/Space.obj-6ac544ee7742d4210679b678081ec1a5.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true
