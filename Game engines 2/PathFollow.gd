@@ -1,7 +1,7 @@
 extends PathFollow
 
 onready var pelican = $"D77TC Pelican"
-var speed = 5
+var speed = 20
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,5 +10,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	offset += delta * speed
+	if pelican.visible == true:
+		offset += delta * speed
 

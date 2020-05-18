@@ -1,48 +1,86 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://D77TC Pelican.tscn" type="PackedScene" id=1]
 [ext_resource path="res://HaloRing.tscn" type="PackedScene" id=2]
 [ext_resource path="res://PathFollow.gd" type="Script" id=3]
 [ext_resource path="res://Scene1.gd" type="Script" id=4]
-[ext_resource path="res://Models/Space/skybox colorful.png" type="Texture" id=5]
+[ext_resource path="res://WorldEnv.tres" type="Environment" id=5]
+[ext_resource path="res://Audio/Music/Halo Theme Song Original.ogg" type="AudioStream" id=6]
+[ext_resource path="res://IntroCam.tres" type="Animation" id=7]
+[ext_resource path="res://Audio/sfx/Space Ship Bypass_10.wav" type="AudioStream" id=8]
 
-[sub_resource type="PanoramaSky" id=1]
-radiance_size = 6
-panorama = ExtResource( 5 )
-
-[sub_resource type="Environment" id=2]
-background_mode = 2
-background_sky = SubResource( 1 )
-ambient_light_color = Color( 1, 1, 1, 1 )
-ambient_light_energy = 16.0
-dof_blur_far_distance = 144.02
-dof_blur_far_transition = 600.35
-dof_blur_far_amount = 0.0
-dof_blur_far_quality = 2
-glow_enabled = true
-glow_intensity = 0.45
-glow_strength = 0.87
-glow_blend_mode = 0
-glow_hdr_threshold = 0.0
-adjustment_enabled = true
-adjustment_brightness = 1.44
-adjustment_contrast = 1.09
-adjustment_saturation = 1.35
-
-[sub_resource type="Curve3D" id=3]
+[sub_resource type="Curve3D" id=1]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -4.29712, 24.9251, -3.05874, 0, 0, 0, 0, 0, 0, 21.156, 39.043, 34.2495 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -6.90373, 15.6492, -18.5614, 0, 0, 0, 0, 0, 0, 41.7517, 75.6688, 163.282 ),
 "tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "PelicanIntro"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 7.8, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PelicanCam:translation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 24.61, 0 ), Vector3( 0, 40, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PelicanCam:rotation_degrees")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 21.68, -180, 0 ), Vector3( 21.68, -170, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 7, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
 }
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 4 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 2 )
+environment = ExtResource( 5 )
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( -1, -1.20373e-07, -3.02792e-07, 0, 0.929262, -0.369423, 3.25841e-07, -0.369423, -0.929262, 0, 24.61, 0 )
+[node name="IntroCam" type="Camera" parent="."]
+transform = Transform( -0.791996, 0.544141, 0.276861, 0.566277, 0.824215, 0, -0.228193, 0.15678, -0.96091, 0, 101.21, 46.729 )
+current = true
+near = 0.01
+far = 519.4
+
+[node name="PelicanCam" type="Camera" parent="."]
+transform = Transform( -1, -5.57813e-08, -1.40315e-07, 0, 0.929262, -0.369423, 1.50996e-07, -0.369423, -0.929262, 0, 24.61, 0 )
 fov = 90.0
 far = 1643.6
 
@@ -51,15 +89,40 @@ transform = Transform( -1.2479, -1.16431, -1.04266, 0.683408, 0.793435, -1.70394
 
 [node name="Path" type="Path" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.466905, -0.466185, 0.206686 )
-curve = SubResource( 3 )
+curve = SubResource( 1 )
 
 [node name="PathFollow" type="PathFollow" parent="Path"]
-transform = Transform( 0.97982, -0.0563858, 0.191758, 0, 0.959384, 0.282102, -0.199876, -0.276411, 0.940021, -1.93875, 22.2753, -1.93623 )
+transform = Transform( 0.966016, -0.0785174, 0.246261, -7.45057e-09, 0.952745, 0.303769, -0.258476, -0.293448, 0.920363, -6.90373, 15.6492, -18.5614 )
 rotation_mode = 4
+loop = false
 script = ExtResource( 3 )
 
 [node name="D77TC Pelican" parent="Path/PathFollow" instance=ExtResource( 1 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+visible = false
+
+[node name="flybyaudio" type="AudioStreamPlayer" parent="Path/PathFollow/D77TC Pelican"]
+stream = ExtResource( 8 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.834012, 0.310402, -0.456153, 0.381564, -0.921652, 0.0704739, -0.398539, -0.232828, -0.887107, -0.0633087, 18.1882, -29.609 )
+transform = Transform( -0.59694, -0.773252, -0.213878, -0.672034, 0.33632, 0.659742, -0.438215, 0.537559, -0.720415, -30.0196, 109.538, -98.9453 )
+shadow_enabled = true
+shadow_contact = 0.21
+directional_shadow_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Intro = ExtResource( 7 )
+anims/PelicanIntro = SubResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

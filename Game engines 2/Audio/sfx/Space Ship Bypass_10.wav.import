@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Space Ship Bypass_10.wav-2066abbd356b176049a4367b14b78210.sample"
+
+[deps]
+
+source_file="res://Audio/sfx/Space Ship Bypass_10.wav"
+dest_files=[ "res://.import/Space Ship Bypass_10.wav-2066abbd356b176049a4367b14b78210.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

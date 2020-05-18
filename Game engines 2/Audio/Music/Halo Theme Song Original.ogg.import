@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Halo Theme Song Original.ogg-0ff32048f26d20a91f4f2b1dfa8d13ad.oggstr"
+
+[deps]
+
+source_file="res://Audio/Music/Halo Theme Song Original.ogg"
+dest_files=[ "res://.import/Halo Theme Song Original.ogg-0ff32048f26d20a91f4f2b1dfa8d13ad.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
