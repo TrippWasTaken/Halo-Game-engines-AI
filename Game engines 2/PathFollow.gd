@@ -1,6 +1,6 @@
 extends PathFollow
 
-onready var pelican = $Pelican
+onready var pelican = $"D77TC Pelican"
 var speed = 5
 
 
