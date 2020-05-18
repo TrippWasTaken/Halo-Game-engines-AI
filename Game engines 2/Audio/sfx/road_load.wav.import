@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/road_load.wav-3f938ac7bff479245e0e200adf4cb75a.sample"
+
+[deps]
+
+source_file="res://Audio/sfx/road_load.wav"
+dest_files=[ "res://.import/road_load.wav-3f938ac7bff479245e0e200adf4cb75a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

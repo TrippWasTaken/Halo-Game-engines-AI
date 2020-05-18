@@ -30,5 +30,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$AnimationPlayer.stop()
 		$PelicanCam.make_current()
 		pelican_fly()
+		
 	if anim_name == "PelicanIntro":
 		get_tree().change_scene("res://Scene2.tscn")
