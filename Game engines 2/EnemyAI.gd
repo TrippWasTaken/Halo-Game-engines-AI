@@ -1,23 +1,31 @@
 extends Spatial
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+const BULLET = preload("res://EnemyBullet.tscn")
+var target
+var BulletPosition
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+func _process(delta):
+	if target:
+		$canon.look_at(target.global_transform.origin, Vector3.UP)
+		$canon2.look_at(target.global_transform.origin, Vector3.UP)
+		$canon3.look_at(target.global_transform.origin, Vector3.UP)
+		
+	if (Input.is_action_pressed("shoot")):
+		print("Shoot")
+		var bullet = BULLET.instance()
+		var direction = $canon.look_at(target.global_transform.origin, Vector3.UP)
+		
+		
 func _on_Area_area_entered(area):
-	print(area.name + "entered")
+	if area.is_in_group("Pelican"):
+		target = area
 
 
 func _on_Area_area_exited(area):
-	print(area.name + "exited")
+	if area.is_in_group("Pelican"):
+		target = null

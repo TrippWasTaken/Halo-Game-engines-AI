@@ -25,13 +25,13 @@ glow_enabled = true
 glow_levels/2 = true
 glow_levels/3 = false
 glow_intensity = 0.45
-glow_strength = 2.0
+glow_strength = 0.87
 glow_blend_mode = 0
 glow_hdr_threshold = 0.0
 adjustment_enabled = true
 adjustment_contrast = 1.09
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "covcam"
 length = 10.0
 tracks/0/type = "value"
@@ -83,8 +83,7 @@ tracks/3/keys = {
 "values": [ 179.0, 70.0 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "slipspace fade"
+[sub_resource type="Animation" id=4]
 length = 2.0
 
 [sub_resource type="SpriteFrames" id=5]
@@ -108,12 +107,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.95275 )
 transform = Transform( 1, 0, 0, 0, -0.496944, 0.867783, 0, -0.867783, -0.496944, 0, 16.1127, -59.657 )
 
 [node name="Pelicancam" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 6, 8.572 )
+transform = Transform( 1, 0, 0, 0, 0.95138, 0.308021, 0, -0.308021, 0.95138, 0, 4.45571, 8.572 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Scene2Intro = ExtResource( 6 )
-anims/covcam = SubResource( 4 )
-"anims/slipspace fade" = SubResource( 3 )
+anims/covcam = SubResource( 3 )
+"anims/slipspace fade" = SubResource( 4 )
 
 [node name="CovenantCarrier" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.0519604, 0, 0.497293, 0, 0.5, 0, -0.497293, 0, 0.0519604, -6.97063, -35.3279, 539.735 )

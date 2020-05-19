@@ -11,7 +11,7 @@
 
 [sub_resource type="Curve3D" id=1]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -6.90373, 15.6492, -18.5614, 0, 0, 0, 0, 0, 0, 41.7517, 75.6688, 163.282 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -6.90373, 15.6492, -18.5614, 0, 0, 0, 0, 0, 0, 12.2671, 77.055, 191.16 ),
 "tilts": PoolRealArray( 0, 0 )
 }
 

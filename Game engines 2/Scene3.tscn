@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://WorldEnv.tres" type="Environment" id=1]
 [ext_resource path="res://EnemyAI.gd" type="Script" id=2]
@@ -6,11 +6,15 @@
 [ext_resource path="res://CovenantCarrier.tscn" type="PackedScene" id=4]
 [ext_resource path="res://PelicanAvoid.gd" type="Script" id=5]
 
-[sub_resource type="CapsuleShape" id=2]
+[sub_resource type="CapsuleShape" id=1]
 radius = 5.19032
 height = 9.50199
 
-[sub_resource type="CylinderShape" id=1]
+[sub_resource type="CapsuleMesh" id=2]
+radius = 6.263
+mid_height = 46.262
+
+[sub_resource type="CylinderShape" id=3]
 radius = 5.05014
 height = 0.818841
 
@@ -30,11 +34,28 @@ far = 8192.0
 
 [node name="PelicanCol" type="CollisionShape" parent="D77TC Pelican/Pelican"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81646, -5.16925 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="CovCarrier" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -385.612, 0, 0 )
 script = ExtResource( 2 )
+
+[node name="canon" type="MeshInstance" parent="CovCarrier"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 235.178, 10.984, 53.9071 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Position3D" type="Position3D" parent="CovCarrier/canon"]
+
+[node name="canon2" type="MeshInstance" parent="CovCarrier"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -284.754, 73.2912, 30.7564 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="canon3" type="MeshInstance" parent="CovCarrier"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80.9803, 37.078, 126.206 )
+mesh = SubResource( 2 )
+material/0 = null
 
 [node name="EnemyArea" type="Area" parent="CovCarrier" groups=[
 "Enemy",
@@ -43,7 +64,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 145.468, 0, 293.478 )
 
 [node name="EnemyShap" type="CollisionShape" parent="CovCarrier/EnemyArea"]
 transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, -93.305, 66.3919, 141.068 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 1 )
