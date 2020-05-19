@@ -1,7 +1,7 @@
 extends PathFollow
 
 onready var pelican = $"D77TC Pelican"
-var speed = 20
+var speed = 30
 
 
 # Called when the node enters the scene tree for the first time.
