@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Halo Combat Evolved OST #3 Brothers In Arms.ogg-c2f64a0c018bcfb0a4338dda4b01c9b1.oggstr"
+
+[deps]
+
+source_file="res://Audio/Music/Halo Combat Evolved OST #3 Brothers In Arms.ogg"
+dest_files=[ "res://.import/Halo Combat Evolved OST #3 Brothers In Arms.ogg-c2f64a0c018bcfb0a4338dda4b01c9b1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

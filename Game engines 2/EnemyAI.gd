@@ -7,13 +7,8 @@ var BulletPosition
 var timer = 0
 var rand_time = 0
 
-var canons = []
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	canons.append($canon)
-	canons.append($canon2)
-	canons.append($canon3)
 	rand_time = rand_range(0, 500)
 	pass
 

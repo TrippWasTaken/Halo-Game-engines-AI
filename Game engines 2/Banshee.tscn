@@ -1,8 +1,168 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Models/Banshee/Banshee.DAE" type="PackedScene" id=1]
+[ext_resource path="res://Banshee.gd" type="Script" id=2]
+[ext_resource path="res://Models/Space/png-energy-orb-sprite-6-transparent.png" type="Texture" id=3]
+[ext_resource path="res://Audio/sfx/explosion.wav" type="AudioStream" id=4]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 10.8604
+height = 0.002
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 192, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 384, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 576, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 768, 0, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 0, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 192, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 384, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 576, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 768, 192, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 0, 384, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 192, 384, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 384, 384, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 576, 384, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 768, 384, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 0, 576, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 192, 576, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 384, 576, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 576, 576, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 768, 576, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 0, 768, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 192, 768, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 384, 768, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 576, 768, 192, 192 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 7
+atlas = ExtResource( 3 )
+region = Rect2( 768, 768, 192, 192 )
+
+[sub_resource type="SpriteFrames" id=27]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
+"loop": false,
+"name": "default",
+"speed": 60.0
+} ]
 
 [node name="Banshee" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
 
 [node name="__unnamed" parent="Skeleton" index="0"]
-transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0 )
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, -5.07739, 0 )
+
+[node name="Area" type="Area" parent="." index="2" groups=[
+"Banshee",
+]]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.63575, 0 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.80143, 3.94497, 0 )
+pixel_size = 0.1
+axis = 0
+frames = SubResource( 27 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource( 4 )
+volume_db = 2.019
+[connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
