@@ -1,6 +1,15 @@
 # HaloGE2Assignment
 
-![Image description](https://gamingbolt.com/wp-content/uploads/2019/06/halo-infinite-1.jpg)
+# Demo Video
+![YouTube](https://img.youtube.com/vi/JPefroIliTg/mqdefault.jpg) 
+[Video Link](https://www.youtube.com/watch?v=JPefroIliTg&feature=youtu.be)
+
+# Features
+- Ship AI that fires at pelican
+- Ship AI to dodge incoming fire
+- Ship AI to look for enemies and fire at them until none are left
+- Top quality "voice acting" :D
+- path following ships
 
 A Halo style space battle simulation
 For this assignment I will be using the godot game engine as its one Ive grown to like
