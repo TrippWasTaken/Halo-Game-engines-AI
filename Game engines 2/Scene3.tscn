@@ -1,22 +1,54 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://WorldEnv.tres" type="Environment" id=1]
 [ext_resource path="res://EnemyAI.gd" type="Script" id=2]
 [ext_resource path="res://D77TC Pelican.tscn" type="PackedScene" id=3]
 [ext_resource path="res://CovenantCarrier.tscn" type="PackedScene" id=4]
 [ext_resource path="res://PelicanAvoid.gd" type="Script" id=5]
+[ext_resource path="res://Audio/sfx/road_load.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/Music/Halo - Devils Monsters.ogg" type="AudioStream" id=8]
 
-[sub_resource type="CapsuleShape" id=1]
-radius = 5.19032
-height = 9.50199
+[sub_resource type="Animation" id=1]
+resource_name = "left"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 30 ), Vector3( 0, 0, 20 ), Vector3( 0, 0, 0 ) ]
+}
 
-[sub_resource type="CapsuleMesh" id=2]
+[sub_resource type="Animation" id=2]
+resource_name = "right"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -30 ), Vector3( 0, 0, -20 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="CapsuleShape" id=3]
+radius = 19.3389
+height = 14.1012
+
+[sub_resource type="CapsuleMesh" id=4]
 radius = 6.263
 mid_height = 46.262
 
-[sub_resource type="CylinderShape" id=3]
+[sub_resource type="CylinderShape" id=5]
 radius = 5.05014
-height = 0.818841
+height = 6.80409
 
 [node name="Scene3" type="Spatial"]
 
@@ -24,8 +56,18 @@ height = 0.818841
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -373.672, 23.8444, 178.066 )
 script = ExtResource( 5 )
 
+[node name="pelicanaudio" type="AudioStreamPlayer" parent="D77TC Pelican"]
+stream = ExtResource( 6 )
+
+[node name="music" type="AudioStreamPlayer" parent="D77TC Pelican"]
+stream = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="D77TC Pelican"]
+anims/left = SubResource( 1 )
+anims/right = SubResource( 2 )
+
 [node name="Camera" type="Camera" parent="D77TC Pelican"]
-transform = Transform( 1, 0, 0, 0, 0.989982, 0.141195, 0, -0.141195, 0.989982, -1.75946, 6.68073, 37.5432 )
+transform = Transform( 1, 0, 0, 0, 0.989982, 0.141195, 0, -0.141195, 0.989982, -1.759, 6.681, 19.189 )
 far = 8192.0
 
 [node name="Pelican" type="Area" parent="D77TC Pelican" groups=[
@@ -34,7 +76,7 @@ far = 8192.0
 
 [node name="PelicanCol" type="CollisionShape" parent="D77TC Pelican/Pelican"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81646, -5.16925 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="CovCarrier" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -385.612, 0, 0 )
@@ -42,19 +84,22 @@ script = ExtResource( 2 )
 
 [node name="canon" type="MeshInstance" parent="CovCarrier"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 235.178, 10.984, 53.9071 )
-mesh = SubResource( 2 )
+visible = false
+mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Position3D" type="Position3D" parent="CovCarrier/canon"]
 
 [node name="canon2" type="MeshInstance" parent="CovCarrier"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -284.754, 73.2912, 30.7564 )
-mesh = SubResource( 2 )
+visible = false
+mesh = SubResource( 4 )
 material/0 = null
 
 [node name="canon3" type="MeshInstance" parent="CovCarrier"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80.9803, 37.078, 126.206 )
-mesh = SubResource( 2 )
+visible = false
+mesh = SubResource( 4 )
 material/0 = null
 
 [node name="EnemyArea" type="Area" parent="CovCarrier" groups=[
@@ -64,7 +109,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 145.468, 0, 293.478 )
 
 [node name="EnemyShap" type="CollisionShape" parent="CovCarrier/EnemyArea"]
 transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, -93.305, 66.3919, 141.068 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 1 )
