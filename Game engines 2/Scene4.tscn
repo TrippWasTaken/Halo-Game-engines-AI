@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Models/Space/skybox colorful.png" type="Texture" id=1]
 [ext_resource path="res://CovenantCarrier.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Bansheesflyin.gd" type="Script" id=8]
 [ext_resource path="res://Audio/sfx/pelicanshoot.wav" type="AudioStream" id=9]
 [ext_resource path="res://Audio/sfx/jet.wav" type="AudioStream" id=10]
+[ext_resource path="res://Audio/Music/Halo 2 Volume 1 OST # 6 Heretic, Hero.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Audio/voice/5.wav" type="AudioStream" id=12]
 
 [sub_resource type="PanoramaSky" id=1]
 radiance_size = 6
@@ -39,7 +41,7 @@ _data = {
 "tilts": PoolRealArray( 0, 0, 0 )
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=4]
 resource_name = "Banshee idle"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Bansheesfight:translation")
@@ -54,8 +56,7 @@ tracks/0/keys = {
 "values": [ Vector3( 1.05647e-05, 0, 6.54993 ), Vector3( 0, 0.2, 6.55 ), Vector3( 0, -0.2, 6.55 ), Vector3( 1.05647e-05, 0, 6.54993 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "camera"
+[sub_resource type="Animation" id=5]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:color")
@@ -70,8 +71,34 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "fadein"
+[sub_resource type="Animation" id=6]
+resource_name = "fade out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("music:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
@@ -86,11 +113,10 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=8]
-resource_name = "pelican leave"
 
-[sub_resource type="CapsuleMesh" id=7]
+[sub_resource type="CapsuleMesh" id=9]
 
-[sub_resource type="CylinderShape" id=6]
+[sub_resource type="CylinderShape" id=10]
 radius = 30.3339
 height = 26.7974
 
@@ -156,14 +182,21 @@ transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 23.1366
 [node name="Banshee3" parent="Bansheesfight" instance=ExtResource( 3 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 0, 0 )
 
-[node name="fightcam" type="Camera" parent="Bansheesfight"]
+[node name="target2" type="Camera" parent="Bansheesfight"]
 transform = Transform( 0.485649, 0.151795, -0.860875, 0, 0.984808, 0.173648, 0.874154, -0.084332, 0.478272, -80.04, 21.303, 159.976 )
 far = 8192.0
 
+[node name="fightcam" type="InterpolatedCamera" parent="."]
+transform = Transform( 0.271827, 0, 0.962346, 0, 1, 0, -0.962346, 0, 0.271827, 0, 0, 0 )
+far = 8192.0
+target = NodePath("../Bansheesfight/target2")
+enabled = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-"anims/Banshee idle" = SubResource( 9 )
-anims/camera = SubResource( 4 )
-anims/fadein = SubResource( 5 )
+"anims/Banshee idle" = SubResource( 4 )
+anims/camera = SubResource( 5 )
+"anims/fade out" = SubResource( 6 )
+anims/fadein = SubResource( 7 )
 "anims/pelican leave" = SubResource( 8 )
 
 [node name="D77TCPelican" parent="." instance=ExtResource( 6 )]
@@ -172,23 +205,34 @@ script = ExtResource( 7 )
 
 [node name="gun" type="MeshInstance" parent="D77TCPelican"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72848e-12, 0.30848, 5.30375 )
-mesh = SubResource( 7 )
+visible = false
+mesh = SubResource( 9 )
 material/0 = null
 
 [node name="Area" type="Area" parent="D77TCPelican"]
 
 [node name="CollisionShape" type="CollisionShape" parent="D77TCPelican/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.09495e-13, -8.37027, 28.2349 )
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="D77TCPelican"]
 stream = ExtResource( 9 )
 
 [node name="pelicannoise" type="AudioStreamPlayer" parent="D77TCPelican"]
 stream = ExtResource( 10 )
+
+[node name="VisibilityNotifier" type="VisibilityNotifier" parent="D77TCPelican"]
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="voice1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = 10.0
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="D77TCPelican/Area" to="D77TCPelican" method="_on_Area_area_entered"]
 [connection signal="area_exited" from="D77TCPelican/Area" to="D77TCPelican" method="_on_Area_area_exited"]
+[connection signal="camera_exited" from="D77TCPelican/VisibilityNotifier" to="." method="_on_VisibilityNotifier_camera_exited"]
 
 [editable path="Bansheesfight/Banshee"]
 

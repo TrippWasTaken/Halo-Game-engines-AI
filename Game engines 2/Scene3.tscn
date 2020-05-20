@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://WorldEnv.tres" type="Environment" id=1]
 [ext_resource path="res://EnemyAI.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Audio/sfx/road_load.wav" type="AudioStream" id=6]
 [ext_resource path="res://Audio/sfx/enemyshoot.wav" type="AudioStream" id=7]
 [ext_resource path="res://Audio/Music/Halo - Devils Monsters.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Audio/voice/4.wav" type="AudioStream" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "left"
@@ -54,7 +55,7 @@ height = 6.80409
 [node name="Scene3" type="Spatial"]
 
 [node name="D77TC Pelican" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -373.672, 23.8444, 178.066 )
+transform = Transform( 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, -373.672, 23.8444, 178.066 )
 script = ExtResource( 5 )
 
 [node name="pelicanaudio" type="AudioStreamPlayer" parent="D77TC Pelican"]
@@ -62,6 +63,10 @@ stream = ExtResource( 6 )
 
 [node name="music" type="AudioStreamPlayer" parent="D77TC Pelican"]
 stream = ExtResource( 8 )
+
+[node name="voice" type="AudioStreamPlayer" parent="D77TC Pelican"]
+stream = ExtResource( 9 )
+volume_db = 10.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="D77TC Pelican"]
 anims/left = SubResource( 1 )
@@ -88,7 +93,6 @@ script = ExtResource( 2 )
 
 [node name="shots" type="AudioStreamPlayer" parent="CovCarrier"]
 stream = ExtResource( 7 )
-volume_db = -10.0
 
 [node name="canon" type="MeshInstance" parent="CovCarrier"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 235.178, 10.984, 53.9071 )

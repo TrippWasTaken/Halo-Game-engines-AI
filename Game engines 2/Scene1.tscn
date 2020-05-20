@@ -74,7 +74,7 @@ script = ExtResource( 4 )
 environment = ExtResource( 5 )
 
 [node name="IntroCam" type="Camera" parent="."]
-transform = Transform( -0.791996, 0.544141, 0.276861, 0.566277, 0.824215, 0, -0.228193, 0.15678, -0.96091, 0, 101.21, 46.729 )
+transform = Transform( -0.412107, 0.283138, -0.866025, 0.566277, 0.824215, 0, 0.713791, -0.49041, -0.5, 0, 124.657, 46.7295 )
 current = true
 near = 0.01
 far = 519.4
@@ -121,7 +121,7 @@ anims/PelicanIntro = SubResource( 2 )
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0 )
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

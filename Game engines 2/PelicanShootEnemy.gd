@@ -23,9 +23,8 @@ func _process(delta):
 		pelican.translate(-(Vector3.FORWARD) * (speed * delta))
 		
 	if targets_hit == 3:
-		yield(get_tree().create_timer(5.0), "timeout")
 		if timer >= 100:
-			speed = speed * 1.25
+			speed = speed * 1.1
 			timer = 0
 			
 		pelican.translate(-(Vector3.FORWARD) * (speed * delta))

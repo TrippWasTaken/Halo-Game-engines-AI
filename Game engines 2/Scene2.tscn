@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Models/Space/skybox colorful.png" type="Texture" id=1]
 [ext_resource path="res://CovenantCarrier.tscn" type="PackedScene" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://Scene2.tres" type="Animation" id=6]
 [ext_resource path="res://Audio/sfx/road_load.wav" type="AudioStream" id=7]
 [ext_resource path="res://Audio/Music/untitled.wav" type="AudioStream" id=8]
+[ext_resource path="res://Audio/voice/2.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audio/voice/1.wav" type="AudioStream" id=10]
+[ext_resource path="res://Audio/voice/3.wav" type="AudioStream" id=11]
 
 [sub_resource type="PanoramaSky" id=1]
 radiance_size = 6
@@ -25,7 +28,7 @@ glow_enabled = true
 glow_levels/2 = true
 glow_levels/3 = false
 glow_intensity = 0.45
-glow_strength = 0.87
+glow_strength = 1.88093
 glow_blend_mode = 0
 glow_hdr_threshold = 0.0
 adjustment_enabled = true
@@ -82,6 +85,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ 179.0, 70.0 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("voice3:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 2.0
@@ -118,8 +133,8 @@ anims/covcam = SubResource( 3 )
 transform = Transform( 0.0519604, 0, 0.497293, 0, 0.5, 0, -0.497293, 0, 0.0519604, -6.97063, -35.3279, 539.735 )
 
 [node name="Covcam" type="Camera" parent="."]
-transform = Transform( -0.853533, 0, 0.521039, 0, 1, 0, -0.521039, 0, -0.853533, 51.5796, 1.27896, -10.1176 )
-fov = 172.024
+transform = Transform( -0.846237, -0.00455368, 0.532787, 0, 0.999963, 0.0085466, -0.532806, 0.00723245, -0.846206, 54.0023, 2.07423, -9.78922 )
+fov = 138.016
 far = 8192.0
 
 [node name="slipspacesound" type="AudioStreamPlayer" parent="."]
@@ -136,4 +151,16 @@ animation = "New Anim"
 
 [node name="suspense" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+
+[node name="voice1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = 10.0
+
+[node name="voice2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = 10.0
+
+[node name="voice3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = 10.0
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

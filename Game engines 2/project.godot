@@ -19,6 +19,12 @@ config/name="GE2CA"
 run/main_scene="res://Scene1.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1600
+window/size/height=900
+window/size/borderless=true
+
 [input]
 
 shoot={

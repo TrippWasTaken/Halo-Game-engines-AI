@@ -2,7 +2,7 @@ extends Spatial
 
 
 onready var pelican = get_node(".")
-var speed = 10
+var speed = 20
 var in_area
 
 var total = 0
@@ -14,6 +14,7 @@ var avoiding_shot
 func _ready():
 	$pelicanaudio.play()
 	$music.play()
+	$voice.play()
 	
 func _process(delta):
 	if in_area == true:
