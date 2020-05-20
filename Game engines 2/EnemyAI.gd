@@ -14,7 +14,7 @@ func _ready():
 	canons.append($canon)
 	canons.append($canon2)
 	canons.append($canon3)
-	rand_time = rand_range(0, 200)
+	rand_time = rand_range(0, 500)
 	pass
 
 
@@ -25,15 +25,16 @@ func _process(delta):
 		$canon3.look_at(target.global_transform.origin, Vector3.UP)
 		
 #    (Input.is_action_pressed("shoot")) and 
-	if target and timer >= 500 + rand_time:
+	if target and timer >= 1000 + rand_time:
 		timer = 0
-		rand_time = rand_range(0, 200)
+		rand_time = rand_range(0, 500)
 #        print("Shoot")
 		#$canon.look_at(target.global_transform.origin, Vector3.UP)
 		var root = $canon.get_tree().get_root()
 		var rand = rand_range(0, 3.0)
 #        print(rand)
 		var bullet = BULLET.instance()
+		$shots.play()
 		root.add_child(bullet)
 		if rand <= 1.0:
 			bullet.transform.origin = $canon.global_transform.origin

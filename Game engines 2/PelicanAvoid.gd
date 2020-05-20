@@ -2,7 +2,7 @@ extends Spatial
 
 
 onready var pelican = get_node(".")
-var speed = 30
+var speed = 10
 var in_area
 
 var total = 0
@@ -18,7 +18,7 @@ func _ready():
 func _process(delta):
 	if in_area == true:
 		if avoidance_normal:
-			pelican.transform.origin = lerp(pelican.transform.origin, pelican.transform.origin + avoidance_normal, delta * 10)
+			pelican.transform.origin = lerp(pelican.transform.origin, pelican.transform.origin + avoidance_normal, delta * 5)
 #            print(lerped)
 #            pelican.translate(pelican.origin - lerped)
 		
