@@ -1,5 +1,3 @@
-# HaloGE2Assignment
-
 # Demo Video
 ![YouTube](https://img.youtube.com/vi/JPefroIliTg/mqdefault.jpg) 
 [Video Link](https://www.youtube.com/watch?v=JPefroIliTg&feature=youtu.be)
