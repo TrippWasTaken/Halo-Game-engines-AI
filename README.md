@@ -1,6 +1,5 @@
 # Demo Video
-![YouTube](https://img.youtube.com/vi/JPefroIliTg/mqdefault.jpg) 
-[Video Link](https://www.youtube.com/watch?v=JPefroIliTg&feature=youtu.be)
+[![](https://img.youtube.com/vi/JPefroIliTg/mqdefault.jpg)](https://www.youtube.com/watch?v=JPefroIliTg&feature=youtu.be"")
 
 # Instructions
 To launch the assignment simply load the project into godot and click play, the main scene is scene1 and it'll play through all of them in order, when the end screen appears the window will close itself after 10 seconds.
